@@ -1,4 +1,3 @@
-
 GOPATH:=$(shell go env GOPATH)
 .PHONY: init
 init:
@@ -9,9 +8,9 @@ init:
 proto:
 	protoc --proto_path=. --micro_out=. --go_out=:. proto/category.proto
 	# mac
-	 sed  -i ""  's|micro/go-micro|asim/go-micro/v3|g' proto/**/*.micro.go
+	 sed  -i ""  's|micro/micro/v3/service|asim/go-micro/v3|g' proto/**/*.micro.go
 	# linux
-	#sed  -i   's|micro/go-micro|asim/go-micro/v3|g' proto/**/*.micro.go
+	#sed  -i   's|micro/micro/v3/service|asim/go-micro/v3|g' proto/**/*.micro.go
 .PHONY: build
 build:
 	go build -o category *.go

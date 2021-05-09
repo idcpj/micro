@@ -6,17 +6,17 @@ import (
 )
 
 type ICategoryDataService interface {
-	AddCategory(model *model.Category) (int64,error)
+	AddCategory(model *model.Category) (int64, error)
 	DeleteCategory(id int64) error
 	UpdateCategory(*model.Category) error
-	FindCategoryById(int64) (*model.Category,error)
-	FindAllCategory()([]*model.Category,error)
-	FindCategoryByName(string)(*model.Category,error)
-	FindCategoryByLevel(uint32)([]*model.Category,error)
-	FindCategoryByParent(int64)([]*model.Category,error)
+	FindCategoryById(int64) (*model.Category, error)
+	FindAllCategory() ([]*model.Category, error)
+	FindCategoryByName(string) (*model.Category, error)
+	FindCategoryByLevel(uint32) ([]*model.Category, error)
+	FindCategoryByParent(int64) ([]*model.Category, error)
 }
 
-func NewCateGoryDataService(cateService *repository.CategoryRespository)ICategoryDataService{
+func NewCateGoryDataService(cateService repository.ICateGoryRepository) ICategoryDataService {
 	return &CategoryDataService{
 		cate: cateService,
 	}
@@ -57,4 +57,3 @@ func (c *CategoryDataService) FindCategoryById(id int64) (*model.Category, error
 func (c *CategoryDataService) FindAllCategory() ([]*model.Category, error) {
 	return c.cate.FindALl()
 }
-

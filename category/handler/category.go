@@ -6,11 +6,14 @@ import (
 	"category/domain/service"
 	"category/proto/category"
 	"context"
-	"log"
 )
 
-type Category struct{
+type Category struct {
 	CateDataServer service.ICategoryDataService
+}
+
+func NewCategory(cateDataServer service.ICategoryDataService) *Category {
+	return &Category{CateDataServer: cateDataServer}
 }
 
 func (c *Category) CreateCategory(ctx context.Context, request *category.CategoryRequest, response *category.CreateCategoryResponse) error {
@@ -24,7 +27,7 @@ func (c *Category) CreateCategory(ctx context.Context, request *category.Categor
 	//}
 
 	// 自动转换
-	cate:=&model.Category{}
+	cate := &model.Category{}
 	err := common.SwapTo(request, cate)
 	if err != nil {
 		return err
@@ -33,28 +36,28 @@ func (c *Category) CreateCategory(ctx context.Context, request *category.Categor
 	if err != nil {
 		return err
 	}
-	response.CategoryId=cate.ID
-	response.Message="分类添加成功"
+	response.CategoryId = cate.ID
+	response.Message = "分类添加成功"
 	return nil
 }
 
 func (c *Category) UpdateCategory(ctx context.Context, request *category.CategoryRequest, response *category.UpdateCategoryResponse) error {
-	cate:=&model.Category{}
+	cate := &model.Category{}
 	err := common.SwapTo(request, cate)
 	if err != nil {
 		return err
 	}
 
-	err=c.CateDataServer.UpdateCategory(cate)
+	err = c.CateDataServer.UpdateCategory(cate)
 	if err != nil {
 		return err
 	}
-	response.Message="分类更新服务"
+	response.Message = "分类更新服务"
 	return nil
 }
 
 func (c *Category) DeleteCategory(ctx context.Context, request *category.DeleteCategoryRequest, response *category.DeleteCategoryResponse) error {
-	cate:=&model.Category{}
+	cate := &model.Category{}
 	err := common.SwapTo(request, cate)
 	if err != nil {
 		return err
@@ -64,7 +67,7 @@ func (c *Category) DeleteCategory(ctx context.Context, request *category.DeleteC
 	if err != nil {
 		return err
 	}
-	response.Message="删除成功"
+	response.Message = "删除成功"
 	return nil
 }
 
@@ -73,7 +76,7 @@ func (c *Category) FindCategoryByName(ctx context.Context, request *category.Fin
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(cate,response)
+	return common.SwapTo(cate, response)
 }
 
 func (c *Category) FindCategoryByID(ctx context.Context, request *category.FindByIdRequest, response *category.CategoryResponse) error {
@@ -81,15 +84,17 @@ func (c *Category) FindCategoryByID(ctx context.Context, request *category.FindB
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(cate,response)
+	return common.SwapTo(cate, response)
 }
 
 func (c *Category) FindCategoryByLevel(ctx context.Context, request *category.FindByLevelRequest, response *category.FindAllResponse) error {
+
 	cate, err := c.CateDataServer.FindCategoryByLevel(request.GetCategoryLevel())
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(cate,response)
+
+	return common.SwapTo(cate, &response.Category)
 }
 
 func (c *Category) FindCategoryByParent(ctx context.Context, request *category.FindByParentRequest, response *category.FindAllResponse) error {
@@ -97,7 +102,7 @@ func (c *Category) FindCategoryByParent(ctx context.Context, request *category.F
 	if err != nil {
 		return err
 	}
-	return common.SwapTo(cate,response)
+	return common.SwapTo(cate, &response.Category)
 }
 
 func (c *Category) FindAllCategory(ctx context.Context, request *category.FindAllRequest, response *category.FindAllResponse) error {
@@ -105,15 +110,5 @@ func (c *Category) FindAllCategory(ctx context.Context, request *category.FindAl
 	if err != nil {
 		return err
 	}
-	for _, cate := range cates {
-		resp:=&category.CategoryResponse{}
-		err := common.SwapTo(cate, resp)
-		if err != nil {
-			log.Println(err)
-			break
-		}
-		response.Category = append(response.Category, resp)
-	}
-
-	return nil
+	return common.SwapTo(cates, &response.Category)
 }
