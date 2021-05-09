@@ -11,6 +11,7 @@ import (
 
 import (
 	context "context"
+	api "github.com/asim/go-micro/v3/api"
 	client "github.com/asim/go-micro/v3/client"
 	server "github.com/asim/go-micro/v3/server"
 )
@@ -27,9 +28,16 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // Reference imports to suppress errors if they are not otherwise used.
+var _ api.Endpoint
 var _ context.Context
 var _ client.Option
 var _ server.Option
+
+// Api Endpoints for User service
+
+func NewUserEndpoints() []*api.Endpoint {
+	return []*api.Endpoint{}
+}
 
 // Client API for User service
 
@@ -45,12 +53,6 @@ type userService struct {
 }
 
 func NewUserService(name string, c client.Client) UserService {
-	if c == nil {
-		c = client.NewClient()
-	}
-	if len(name) == 0 {
-		name = "user"
-	}
 	return &userService{
 		c:    c,
 		name: name,
