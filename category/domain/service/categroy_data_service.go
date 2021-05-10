@@ -10,10 +10,10 @@ type ICategoryDataService interface {
 	DeleteCategory(id int64) error
 	UpdateCategory(*model.Category) error
 	FindCategoryById(int64) (*model.Category, error)
-	FindAllCategory() ([]*model.Category, error)
+	FindAllCategory() ([]model.Category, error)
 	FindCategoryByName(string) (*model.Category, error)
-	FindCategoryByLevel(uint32) ([]*model.Category, error)
-	FindCategoryByParent(int64) ([]*model.Category, error)
+	FindCategoryByLevel(uint32) ([]model.Category, error)
+	FindCategoryByParent(int64) ([]model.Category, error)
 }
 
 func NewCateGoryDataService(cateService repository.ICateGoryRepository) ICategoryDataService {
@@ -30,11 +30,11 @@ func (c *CategoryDataService) FindCategoryByName(name string) (*model.Category, 
 	return c.cate.FindCategoryByName(name)
 }
 
-func (c *CategoryDataService) FindCategoryByLevel(levelid uint32) ([]*model.Category, error) {
+func (c *CategoryDataService) FindCategoryByLevel(levelid uint32) ([]model.Category, error) {
 	return c.cate.FindCategoryByLevel(levelid)
 }
 
-func (c *CategoryDataService) FindCategoryByParent(parentId int64) ([]*model.Category, error) {
+func (c *CategoryDataService) FindCategoryByParent(parentId int64) ([]model.Category, error) {
 	return c.cate.FindCategoryByParent(parentId)
 }
 
@@ -54,6 +54,6 @@ func (c *CategoryDataService) FindCategoryById(id int64) (*model.Category, error
 	return c.cate.FindCategoryById(id)
 }
 
-func (c *CategoryDataService) FindAllCategory() ([]*model.Category, error) {
+func (c *CategoryDataService) FindAllCategory() ([]model.Category, error) {
 	return c.cate.FindALl()
 }

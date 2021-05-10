@@ -12,10 +12,10 @@ type ICateGoryRepository interface {
 	CreateCategory(*model.Category) (int64, error)
 	DeleteCategoryById(int64) error
 	UpdateCategory(*model.Category) error
-	FindALl() ([]*model.Category, error)
+	FindALl() ([]model.Category, error)
 	FindCategoryByName(string) (*model.Category, error)
-	FindCategoryByLevel(uint32) ([]*model.Category, error)
-	FindCategoryByParent(int64) ([]*model.Category, error)
+	FindCategoryByLevel(uint32) ([]model.Category, error)
+	FindCategoryByParent(int64) ([]model.Category, error)
 }
 
 func NewCategoryRespository(db *gorm.DB) ICateGoryRepository {
@@ -36,13 +36,13 @@ func (c *CategoryRespository) FindCategoryByName(name string) (category *model.C
 	return category, c.db.Where("category_name=?", name).Find(category).Error
 }
 
-func (c *CategoryRespository) FindCategoryByLevel(levelId uint32) ([]*model.Category, error) {
-	var category []*model.Category
+func (c *CategoryRespository) FindCategoryByLevel(levelId uint32) ([]model.Category, error) {
+	var category []model.Category
 	return category, c.db.Where("category_level=?", levelId).Find(&category).Error
 }
 
-func (c *CategoryRespository) FindCategoryByParent(parentId int64) ([]*model.Category, error) {
-	var category []*model.Category
+func (c *CategoryRespository) FindCategoryByParent(parentId int64) ([]model.Category, error) {
+	var category []model.Category
 	return category, c.db.Where("category_parent=?", parentId).Find(category).Error
 }
 
@@ -67,6 +67,6 @@ func (c *CategoryRespository) UpdateCategory(category *model.Category) error {
 	return c.db.Model(category).Update(category).Error
 }
 
-func (c *CategoryRespository) FindALl() (cates []*model.Category, err error) {
+func (c *CategoryRespository) FindALl() (cates []model.Category, err error) {
 	return cates, c.db.Find(cates).Error
 }
