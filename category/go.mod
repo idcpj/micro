@@ -3,6 +3,7 @@ module category
 go 1.15
 
 require (
+	github.com/asim/go-micro/cmd/protoc-gen-micro/v3 v3.0.0-20210506054305-9e9157d878dc // indirect
 	github.com/asim/go-micro/v3 v3.5.1
 	github.com/golang/protobuf v1.5.2
 	github.com/jinzhu/gorm v1.9.16
