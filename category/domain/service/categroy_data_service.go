@@ -1,8 +1,8 @@
 package service
 
 import (
-	"category/domain/model"
-	"category/domain/repository"
+	"github.com/idcpj/micro/category/domain/model"
+	"github.com/idcpj/micro/category/domain/repository"
 )
 
 type ICategoryDataService interface {

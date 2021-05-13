@@ -15,6 +15,10 @@ build:
 test:
 	go test -v ./... -cover
 
+.PHONY:consul
+consul:
+	docker run -d --name consul  -p 8500:8500  consul
+
 .PHONY: docker
 docker:
 	docker build . -t category:latest

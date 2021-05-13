@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"category/common"
-	"category/domain/model"
-	"category/domain/service"
-	"category/proto/category"
+	"github.com/idcpj/micro/category/common"
+	"github.com/idcpj/micro/category/domain/model"
+	"github.com/idcpj/micro/category/domain/service"
+	"github.com/idcpj/micro/category/proto/category"
 	"context"
 )
 

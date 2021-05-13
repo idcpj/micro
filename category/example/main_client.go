@@ -1,7 +1,7 @@
 package main
 
 import (
-	"category/proto/category"
+	"github.com/idcpj/micro/category/proto/category"
 	"context"
 	"fmt"
 	"github.com/asim/go-micro/v3"
