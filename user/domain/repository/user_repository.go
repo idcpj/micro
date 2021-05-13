@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/idcpj/micro/domain/model"
+	"github.com/idcpj/micro/user/domain/model"
 	"github.com/jinzhu/gorm"
 )
 

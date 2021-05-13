@@ -3,10 +3,10 @@ package main
 import (
 	"github.com/asim/go-micro/v3"
 	"github.com/asim/go-micro/v3/logger"
-	"github.com/idcpj/micro/domain/repository"
-	"github.com/idcpj/micro/domain/service"
-	"github.com/idcpj/micro/handler"
-	"github.com/idcpj/micro/proto/user"
+	"github.com/idcpj/micro/user/domain/repository"
+	"github.com/idcpj/micro/user/domain/service"
+	"github.com/idcpj/micro/user/handler"
+	"github.com/idcpj/micro/user/proto/user"
 	"github.com/jinzhu/gorm"
 	"log"
 

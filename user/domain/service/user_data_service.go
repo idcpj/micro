@@ -2,8 +2,8 @@ package service
 
 import (
 	"errors"
-	"github.com/idcpj/micro/domain/model"
-	"github.com/idcpj/micro/domain/repository"
+	"github.com/idcpj/micro/user/domain/model"
+	"github.com/idcpj/micro/user/domain/repository"
 	"golang.org/x/crypto/bcrypt"
 )
 

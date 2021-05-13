@@ -1,4 +1,4 @@
-module github.com/idcpj/micro
+module github.com/idcpj/micro/user
 
 go 1.15
 

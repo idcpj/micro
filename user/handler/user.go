@@ -2,9 +2,9 @@ package handler
 
 import (
 	"context"
-	"github.com/idcpj/micro/domain/model"
-	"github.com/idcpj/micro/domain/service"
-	"github.com/idcpj/micro/proto/user"
+	"github.com/idcpj/micro/user/domain/model"
+	"github.com/idcpj/micro/user/domain/service"
+	"github.com/idcpj/micro/user/proto/user"
 )
 
 type User struct {
