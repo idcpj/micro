@@ -5,13 +5,11 @@ import (
 	"fmt"
 	"github.com/asim/go-micro/plugins/registry/consul/v3"
 	"github.com/asim/go-micro/v3"
-	"github.com/asim/go-micro/v3/client"
 	"github.com/asim/go-micro/v3/registry"
 	"github.com/idcpj/micro/category/proto/category"
 	"log"
 	"math/rand"
 	"strconv"
-	"time"
 )
 
 func main() {
@@ -60,7 +58,7 @@ func main() {
 	// find  by level_id
 	req3 := &category.FindByLevelRequest{}
 	req3.CategoryLevel = 1
-	levelResp, err := categoryService.FindCategoryByLevel(context.Background(), req3, client.WithRequestTimeout(30*time.Second))
+	levelResp, err := categoryService.FindCategoryByLevel(context.Background(), req3)
 	if err != nil {
 		log.Fatalln(err)
 	}
