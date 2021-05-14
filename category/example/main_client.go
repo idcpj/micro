@@ -1,11 +1,13 @@
 package main
 
 import (
-	"github.com/idcpj/micro/category/proto/category"
 	"context"
 	"fmt"
+	"github.com/asim/go-micro/plugins/registry/consul/v3"
 	"github.com/asim/go-micro/v3"
 	"github.com/asim/go-micro/v3/client"
+	"github.com/asim/go-micro/v3/registry"
+	"github.com/idcpj/micro/category/proto/category"
 	"log"
 	"math/rand"
 	"strconv"
@@ -14,9 +16,18 @@ import (
 
 func main() {
 
+
+	// 配置注册中心就可以访问配置中心
+	consulRegistry:=consul.NewRegistry(func(opts *registry.Options) {
+		opts.Addrs=[]string{
+			"127.0.0.1:8500",
+		}
+	})
+
 	service := micro.NewService(
 		micro.Name("category.client"),
 		micro.Version("latest"),
+		micro.Registry(consulRegistry),
 	)
 
 	service.Init()

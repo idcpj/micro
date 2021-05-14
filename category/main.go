@@ -28,8 +28,6 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	// 获取mysql 配置,从 consul 中获取mysql的配置信息
-	mysqlInfo :=common.GetMysqlFromConsul(consulConfig,"mysql")
 
 	// 注册 consul 成服务需要的consul 服务地址
 	consulRegistry:=consul.NewRegistry(func(opts *registry.Options) {
@@ -44,9 +42,17 @@ func main() {
 		micro.Version("latest"),
 		micro.Address("127.0.0.1:8082"), // 指定此服务的端口
 		micro.Registry(consulRegistry), // 把 micro 注册到 consul
+		micro.Config(consulConfig),
 	)
-
 	srv.Init()
+
+
+	// 读取配置的两种方式
+	// 方式一:直接从consul获取mysql 配置,从 consul 中获取mysql的配置信息
+	//mysqlInfo :=common.GetMysqlFromConsul(consulConfig,"mysql")
+
+	// 方式二: 从 注册的微服务中获取,前提是必须注册成 micro.Config(consulConfig),
+	mysqlInfo :=common.GetMysqlFromConsul(srv.Options().Config,"mysql")
 
 	//db, err := gorm.Open("mysql", "root:12345678@/micro?charset=utf8&parseTime=True&loc=Local")
 	db, err := gorm.Open("mysql", fmt.Sprintf(
