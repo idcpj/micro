@@ -1,8 +1,8 @@
 package common
 
 import (
-	"github.com/asim/go-micro/plugins/config/source/consul/v3"
-	"github.com/asim/go-micro/v3/config"
+	"github.com/asim/go-micro/plugins/config/source/consul/v4"
+	"go-micro.dev/v4/config"
 	"strconv"
 )
 

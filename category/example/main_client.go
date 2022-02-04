@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/asim/go-micro/plugins/registry/consul/v3"
-	"github.com/asim/go-micro/v3"
-	"github.com/asim/go-micro/v3/registry"
+	"github.com/asim/go-micro/plugins/registry/consul/v4"
+	"go-micro.dev/v4"
+	"go-micro.dev/v4/registry"
 	"github.com/idcpj/micro/category/proto/category"
 	"log"
 	"math/rand"

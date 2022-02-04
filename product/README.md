@@ -23,6 +23,17 @@ micro run .
 ```
 
 
+## docker
+
+使用 启动服务
+```
+docker pull consul
+docker run -d -p 8500:8500 consul   // web 访问 127.0.0.1:8500
+
+我的 mac 本机测试
+docker start  silly_chebyshev
+```
+
 ## consule 
 
 registry config

@@ -1,6 +1,6 @@
 package common
 
-import "github.com/asim/go-micro/v3/config"
+import "go-micro.dev/v4/config"
 
 type MysqlConfig struct {
 	Host string `json:"host"`

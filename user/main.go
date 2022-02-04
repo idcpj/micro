@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/asim/go-micro/v3"
-	"github.com/asim/go-micro/v3/logger"
 	"github.com/idcpj/micro/user/domain/repository"
 	"github.com/idcpj/micro/user/domain/service"
 	"github.com/idcpj/micro/user/handler"
 	"github.com/idcpj/micro/user/proto/user"
 	"github.com/jinzhu/gorm"
+	"go-micro.dev/v4"
+	"go-micro.dev/v4/logger"
 	"log"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"

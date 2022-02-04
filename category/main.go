@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/asim/go-micro/plugins/registry/consul/v3"
-	"github.com/asim/go-micro/v3"
-	"github.com/asim/go-micro/v3/registry"
+	"github.com/asim/go-micro/plugins/registry/consul/v4"
 	"github.com/idcpj/micro/category/common"
 	"github.com/idcpj/micro/category/domain/repository"
 	"github.com/idcpj/micro/category/domain/service"
 	"github.com/idcpj/micro/category/handler"
 	"github.com/idcpj/micro/category/proto/category"
 	"github.com/jinzhu/gorm"
+	"go-micro.dev/v4"
+	"go-micro.dev/v4/registry"
 	"log"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"

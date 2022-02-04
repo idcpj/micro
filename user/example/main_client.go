@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/asim/go-micro/v3"
-	"go-micro"
 	"github.com/idcpj/micro/user/proto/user"
+	"go-micro.dev/v4"
+	"go-micro.dev/v4/client"
 	"log"
 	"math/rand"
 	"strconv"

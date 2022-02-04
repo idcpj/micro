@@ -7,10 +7,12 @@ go 1.15
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0
 
 require (
-	github.com/asim/go-micro/plugins/config/source/consul/v3 v3.0.0-20210523073820-acc3f5479f48
-	github.com/asim/go-micro/plugins/registry/consul/v3 v3.0.0-20210523073820-acc3f5479f48
-	github.com/asim/go-micro/v3 v3.5.1
-	github.com/golang/protobuf v1.5.2
+	github.com/asim/go-micro/plugins/config/source/consul/v4 v4.0.0-20220118152736-9e0be6c85d75
+	github.com/asim/go-micro/plugins/registry/consul/v3 v3.7.0
+	github.com/asim/go-micro/plugins/registry/consul/v4 v4.0.0-20220118152736-9e0be6c85d75
+	github.com/asim/go-micro/v3 v3.7.0
 	github.com/jinzhu/gorm v1.9.16
-	google.golang.org/protobuf v1.26.0
+	go-micro.dev/v4 v4.5.0
+	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
+	google.golang.org/protobuf v1.27.1
 )
