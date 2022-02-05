@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/asim/go-micro/plugins/registry/consul/v4"
-	"github.com/idcpj/micro/category/common"
+	"github.com/idcpj/micro/common"
 	"github.com/idcpj/micro/category/domain/repository"
 	"github.com/idcpj/micro/category/domain/service"
 	"github.com/idcpj/micro/category/handler"

@@ -15,4 +15,5 @@ require (
 	go-micro.dev/v4 v4.5.0
 	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
 	google.golang.org/protobuf v1.27.1
+	github.com/idcpj/micro/common latest
 )

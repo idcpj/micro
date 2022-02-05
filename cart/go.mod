@@ -11,6 +11,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/uber/jaeger-client-go v2.29.1+incompatible
 	go-micro.dev/v4 v4.5.0
+	github.com/idcpj/micro/common latest
 	google.golang.org/protobuf v1.27.1
 )
 

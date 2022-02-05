@@ -3,10 +3,14 @@ module github.com/idcpj/micro/category
 go 1.15
 
 require (
+	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
 	github.com/asim/go-micro/plugins/config/source/consul/v4 v4.0.0-20220118152736-9e0be6c85d75
-	github.com/asim/go-micro/plugins/registry/consul/v3 v3.7.0
 	github.com/asim/go-micro/plugins/registry/consul/v4 v4.0.0-20220118152736-9e0be6c85d75
+	github.com/idcpj/micro/common v0.0.0-20220205123931-be853908e969
 	github.com/jinzhu/gorm v1.9.16
+	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
+	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	go-micro.dev/v4 v4.2.1
 	google.golang.org/protobuf v1.26.0
 )

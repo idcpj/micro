@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/idcpj/micro/category/common"
+	"github.com/idcpj/micro/common"
 	"github.com/idcpj/micro/category/domain/model"
 	"github.com/idcpj/micro/category/domain/service"
 	"github.com/idcpj/micro/category/proto/category"

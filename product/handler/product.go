@@ -2,7 +2,7 @@ package handler
 
 import (
 	"context"
-	"github.com/idcpj/micro/product/common"
+	"github.com/idcpj/micro/common"
 	"github.com/idcpj/micro/product/domain/model"
 	"github.com/idcpj/micro/product/domain/service"
 	product "github.com/idcpj/micro/product/proto"
