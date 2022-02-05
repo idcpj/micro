@@ -43,7 +43,7 @@ func main() {
 	srv := micro.NewService(
 		micro.Name("product.service"),
 		micro.Version("latest"),
-		micro.Address("127.0.0.1:8083"), // 指定此服务的端口
+		micro.Address("0.0.0.0:8083"), // 指定此服务的端口
 		micro.Registry(consulRegistry), // 把 micro 注册到 consul
 		micro.Config(consulConfig),
 	)
