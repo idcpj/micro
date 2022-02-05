@@ -1,4 +1,6 @@
 ## goimooc
+模块下的 example 就是调用的方式
+
 
 ## user
 1. 人员的基本操作
