@@ -18,23 +18,22 @@ import (
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
+
 var (
-	QPS=100
+	QPS = 100
 )
 
 func main() {
 	// 配置中心
-	configConsul, err := common.GetConsulConfig("127.0.0.1", 8500, "/micro/config")
+	configConsul, err := common.GetConsulConfig("127.0.0.1", 8700, "/micro/config")
 	if err != nil {
 		log.Error(err)
 	}
 
-
-
 	// 注册 ccart  成服务需要的consul 服务地址
-	consulRegistry:=consul.NewRegistry(func(opts *registry.Options) {
-		opts.Addrs=[]string{
-			"127.0.0.1:8500",
+	consulRegistry := consul.NewRegistry(func(opts *registry.Options) {
+		opts.Addrs = []string{
+			"127.0.0.1:8700",
 		}
 	})
 
@@ -55,7 +54,7 @@ func main() {
 	//db, err := gorm.Open("mysql", "root:12345678@/micro?charset=utf8&parseTime=True&loc=Local")
 	db, err := gorm.Open("mysql", fmt.Sprintf(
 		"%s:%s@/%s?charset=utf8&parseTime=True&loc=Local",
-		mysqlInfo.User,mysqlInfo.Pwd,mysqlInfo.Database))
+		mysqlInfo.User, mysqlInfo.Pwd, mysqlInfo.Database))
 	if err != nil {
 		log.Error(err)
 	}
@@ -75,7 +74,7 @@ func main() {
 	srv := micro.NewService(
 		micro.Name("cart.server"),
 		micro.Version("latest"),
-		micro.Address("0.0.0.0:807"),
+		micro.Address("0.0.0.0:8070"),
 		micro.Registry(consulRegistry),
 
 		micro.WrapHandler(
@@ -85,12 +84,10 @@ func main() {
 			// 添加限流
 			ratelimit.NewHandlerWrapper(QPS),
 		),
-
 	)
 	srv.Init()
 
 	cartServer := service2.NewCartDataServer(cartRepository)
-
 
 	// Register handler
 	cart.RegisterCartHandler(srv.Server(), &handler.Cart{Service: cartServer})

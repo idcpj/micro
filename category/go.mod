@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
-	github.com/asim/go-micro/plugins/config/source/consul/v4 v4.0.0-20220118152736-9e0be6c85d75
+	github.com/asim/go-micro/plugins/config/source/consul/v4 v4.0.0-20220118152736-9e0be6c85d75 // indirect
 	github.com/asim/go-micro/plugins/registry/consul/v4 v4.0.0-20220118152736-9e0be6c85d75
 	github.com/idcpj/micro/common v0.0.0-20220205123931-be853908e969
 	github.com/jinzhu/gorm v1.9.16
